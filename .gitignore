@@ -1,0 +1,5 @@
+.git/
+.ipynb_checkpoints/
+jupyter.out
+ubuntu-bionic-18.04-cloudimg-console.log
+.vagrant/
