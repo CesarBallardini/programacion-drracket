@@ -19,7 +19,24 @@ VAGRANTFILE_API_VERSION = "2"
 
 HOSTNAME = "drracket"
 
+
+$post_up_message = <<POST_UP_MESSAGE
+------------------------------------------------------
+DrRacket Jupyter Notebook
+
+URLS:
+ - host only - http://192.168.33.11:8888/
+ - Forwarded - http://localhost:9999/
+
+El directorio ./notebooks/ es donde se guardan y leen los notebooks
+
+------------------------------------------------------
+POST_UP_MESSAGE
+
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.post_up_message = $post_up_message
 
   if Vagrant.has_plugin?("vagrant-hostmanager")
     config.hostmanager.enabled = true
@@ -85,7 +102,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         srv.vbguest.no_install = false
     end
 
-    srv.vm.synced_folder ".", "/vagrant", disabled: false
+    srv.vm.synced_folder ".", "/vagrant", disabled: false, SharedFoldersEnableSymlinksCreate: false
+
 
     srv.vm.provider :virtualbox do |vb|
       vb.gui = false
@@ -189,7 +207,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
 
-    proxy_host_port = ENV['all_proxy'] || ENV['http_proxy']  || ""
-    proxy_host_port = if proxy_host_port.empty? then "" else proxy_host_port.scan(/\/\/([0-9\.]*):/)[0][0]+':'+proxy_host_port.scan(/:([0-9]*)$/)[0][0] end
+#    proxy_host_port = ENV['all_proxy'] || ENV['http_proxy']  || ""
+#    proxy_host_port = if proxy_host_port.empty? then "" else proxy_host_port.scan(/\/\/([0-9\.]*):/)[0][0]+':'+proxy_host_port.scan(/:([0-9]*)$/)[0][0] end
 
 end
