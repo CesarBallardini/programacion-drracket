@@ -1,4 +1,4 @@
-# Instalación manual
+# Instalación manual de Jupyter Notebook sobre Ubuntu 18.04
 
 # 1. Racket
 
@@ -41,5 +41,6 @@ raco iracket install
 # 5. Ejecutar un `notebook`
 
 ```bash
-jupyter notebook --no-browser --ip 192.168.33.11 --port 9999
+# cd /directorio/donde/guardas/los/notebooks/
+jupyter notebook --no-browser --port 9999
 ```
