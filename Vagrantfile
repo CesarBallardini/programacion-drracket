@@ -108,7 +108,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     srv.vm.provider :virtualbox do |vb|
       vb.gui = false
       vb.cpus = 2
-      vb.memory = "768"
+      vb.memory = "1024"
 
       # https://www.virtualbox.org/manual/ch08.html#vboxmanage-modifyvm mas parametros para personalizar en VB
     end
@@ -163,6 +163,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           sudo add-apt-repository ppa:plt/racket -y
           sudo apt-get update
           sudo apt-get install racket racket-doc -y
+          sudo apt-get install pandoc texlive-xetex -y
+
 
           sudo apt-get install -y python3-pip
           sudo -H python3 -m pip install --upgrade pip
