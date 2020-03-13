@@ -34,7 +34,13 @@ client_port=7777
  
 
 
-ssh -n  -L${client_port}:127.0.0.1:${server_port} ${server_user}@${server_ip} -t ssh -L${server_port}:127.0.0.1:${vagrant_port} -i $HOME/*/.vagrant/machines/drracket/virtualbox/private_key  ${vagrant_user}@${drracket_ip} sleep 365d
+ssh \
+  -n  \
+  -L${client_port}:127.0.0.1:${server_port} ${server_user}@${server_ip} \
+  -t ssh -L${server_port}:127.0.0.1:${vagrant_port} \
+  -i $HOME/*/.vagrant/machines/drracket/virtualbox/private_key \
+   ${vagrant_user}@${drracket_ip} \
+     sleep 365d
 
 
 ```
