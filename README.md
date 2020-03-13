@@ -38,9 +38,6 @@ vagrant halt
 ---
 # Apéndice A - Instalación de los requisitos de software para correr en una VM el Jupyter Notebook de Racket.
 
-Para instalar de manera sencilla Git, Virtualbox y Vagrant, usaremos Chocolatey, un gestor de paquetes de software que es software libre.
-
-Si no quieres usar Chocolatey, o si ya tienes instalados los requisitos, puede ignorar este apéndice.
 Verifica que están corriendo estos mandatos en una ventana del programa cmd:
 
 ```bash
@@ -49,10 +46,17 @@ vboxmanage --version
 vagrant --version
 ```
 
-Si alguno falla, es que falta instalarlo.
+Si alguno falla, es que falta instalarlo. A continuación están las instrucciones para dos Sistemas Operativos:
 
+* Microsoft Windows 10
+* GNU/Linux Ubuntu 18.04 (Bionic)
+
+Si ya tienes instalados los requisitos, puede ignorar este apéndice.
 
 ## Instalación sobre MS-Windows 10
+
+Para instalar de manera sencilla Git, Virtualbox y Vagrant, usaremos Chocolatey, un gestor de paquetes de software que es software libre.
+
 
 * [Instalación de Chocolatey](Instalacion-chocolatey.md)
 * [Instalación de Vagrant, Virtualbox y Git](MS-Windows10-Instalacion-vagrant-virtualbox-git.md)

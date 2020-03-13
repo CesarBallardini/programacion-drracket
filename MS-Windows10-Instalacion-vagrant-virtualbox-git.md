@@ -111,17 +111,9 @@ module OS
 end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "debian/stretch64"
+  config.vm.box = "ubuntu/bionic64"
 
   config.vm.provider "virtualbox"
-
-# Check available Plugins
-#  if OS.windows?
-#      if !Vagrant.has_plugin?('vagrant-winnfsd')
-#          puts "The vagrant-winnfsd plugin is required. Please install it with \"vagrant plugin install vagrant-winnfsd\""
-#          exit
-#      end
-#  end
 
   if Vagrant.has_plugin?('vagrant-vbguest')
       config.vbguest.auto_update = true
@@ -131,12 +123,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.gui = false
       vb.customize ['modifyvm', :id, '--memory', 1024]
       vb.customize ["modifyvm", :id, "--cpus", 2]
-      vb.customize ["modifyvm", :id, "--name", "vagrant-playground"]
   end
 
   # Configure the VM
-  config.vm.hostname = 'vagrant-playground'
-  config.vm.network :private_network, ip: "192.168.56.123"
+  config.vm.hostname = 'prueba'
+  config.vm.network :private_network, ip: "192.168.33.11"
 
   if OS.windows?
     #config.vm.synced_folder ".", "/vagrant", type: "nfs" # usar si tiene las guest additions instaladas el box
@@ -166,6 +157,16 @@ vagrant up
 # esperar que arranque
 
 vagrant ssh
+
+# apagar con:
+
+vagrant halt
+
+# Luego de halt, se puede volver a encender con up
+
+# destruir la VM (se eliminia el disco virtual con todo su contenido)
+
+vagrant destroy
 
 ```
 
