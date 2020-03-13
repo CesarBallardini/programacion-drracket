@@ -30,7 +30,8 @@ client_port=7777
 # hago un tunel desde vagrant:8888 hacia  server:6666
 # y otro tunel desde server:6665 hacia client:7777
 
-# Entonces en http://${client_ip}:${client_port} puedo ver el Jupyter notebook apuntando allí el navegador de mi pc (`client`)
+# Entonces en http://${client_ip}:${client_port} puedo 
+# ver el Jupyter notebook apuntando allí el navegador de mi pc (`client`)
  
 
 
