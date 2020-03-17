@@ -160,24 +160,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         s.privileged = false
         s.inline = <<-SHELL
 
-          sudo add-apt-repository ppa:plt/racket -y
           sudo apt-get update
-          sudo apt-get install racket racket-doc -y
-          sudo apt-get install pandoc texlive-xetex -y
 
+          # pandoc y xetext para generar PDF
+          sudo apt-get install pandoc texlive-xetex -y
 
           sudo apt-get install -y python3-pip
           sudo -H python3 -m pip install --upgrade pip
           sudo -H python3 -m pip install --upgrade notebook
-          # ZeroMQ
-          sudo apt-get install libzmq5 -y
-          # Instalar paquete `iracket`
-          # dependencias
-          raco pkg install zeromq-r-lib  uuid sha
-          # instalar:
+
+          # swi-prolog
+          sudo apt-get install swi-prolog-nox
+          python3 -m pip install --upgrade --user jswipl
+          mkdir  ~/.local/share/jupyter/kernels/jswipl/
+          wget https://raw.githubusercontent.com/targodan/jupyter-swi-prolog/master/kernel.json --output-document=$HOME/.local/share/jupyter/kernels/jswipl/kernel.json
+
+          ## racket
+          sudo add-apt-repository ppa:plt/racket -y ; sudo apt-get update
+          sudo apt-get install racket racket-doc -y
+          sudo apt-get install libzmq5 -y # ZeroMQ
+          raco pkg install zeromq-r-lib uuid sha # Instalar paquete `iracket` / dependencias
           raco pkg install iracket
-          # Registrar el kernel en Jupyter:
-          raco iracket install
+          raco iracket install # Registrar el kernel en Jupyter:
 
           # Cuando pide la contraseña solo hace falta oprimir la tecla ENTER
           jupyter notebook --generate-config
