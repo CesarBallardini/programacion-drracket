@@ -196,6 +196,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.trigger.before [:destroy, :reload, :halt] do |trigger|
       trigger.name = "apaga notebook"
+      trigger.on_error = :continue
       trigger.run_remote = { inline: <<-SHELL
          if [ -f /vagrant/jupyter.out ]
          then
