@@ -3,5 +3,4 @@
 jupyter.out
 ubuntu-bionic-18.04-cloudimg-console.log
 .vagrant/
-tmp/
-notebooks/*
+notebooks/tmp/
