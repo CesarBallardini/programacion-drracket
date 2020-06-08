@@ -71,7 +71,7 @@ El mismo comportamiento se puede expresar mediante `unless`:
 No todos los Scheme proporcionan `when` y `unless`.  Racket los tiene.  Si el Scheme que usas no los tiene, se pueden definir mediante macros.
 
 ```scheme
-if (char<? c #\c) -1
+(if (char<? c #\c) -1
     (if (char=? c #\c) 0
         1))
 ```
