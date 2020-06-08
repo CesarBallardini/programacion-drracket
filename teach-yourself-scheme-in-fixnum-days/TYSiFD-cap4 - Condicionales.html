@@ -31,7 +31,7 @@ evalúa la <em>s-expression</em> <code>then-branch</code>. Sino, se evalúa la <
 <p class="has-line-data" data-line-start="41" data-line-end="43">Si suponemos que la <code>presion</code> del <code>tubo</code> es menor a <code>60</code>, este condicional va a conectar la <code>bomba-de-piso</code><br>
 al <code>tubo</code> y la <code>pulsa</code> <code>5</code> veces. (<code>conecta</code> y <code>pulsa</code> son procedimientos apropiados)</p>
 <p class="has-line-data" data-line-start="44" data-line-end="45">El mismo programa usando <code>if</code> sería:</p>
-<pre><code class="has-line-data" data-line-start="47" data-line-end="55" class="language-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&lt;</span></span> <span class="hljs-list">(<span class="hljs-keyword">presion</span> tubo)</span> <span class="hljs-number">60</span>)</span>
+<pre><code class="has-line-data" data-line-start="48" data-line-end="56" class="language-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&lt;</span></span> <span class="hljs-list">(<span class="hljs-keyword">presion</span> tubo)</span> <span class="hljs-number">60</span>)</span>
   <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">begin</span></span>
    <span class="hljs-list">(<span class="hljs-keyword">abre-valvula</span> tubo)</span>
    <span class="hljs-list">(<span class="hljs-keyword">conecta</span> bomba-de-piso tubo)</span>
@@ -39,54 +39,54 @@ al <code>tubo</code> y la <code>pulsa</code> <code>5</code> veces. (<code>conect
    <span class="hljs-list">(<span class="hljs-keyword">desconecta</span> bomba-de-piso tubo)</span>
    <span class="hljs-list">(<span class="hljs-keyword">cierra-valvula</span> tubo)</span>)</span>)</span>
 </code></pre>
-<p class="has-line-data" data-line-start="56" data-line-end="57">Se advierte que la rama del <code>when</code> tiene un <code>begin</code> implícito, mientras que el <code>if</code> requiere un <code>begin</code>explícito, sino sus ramas tienen más de una forma.</p>
-<p class="has-line-data" data-line-start="58" data-line-end="59">El mismo comportamiento se puede expresar mediante <code>unless</code>:</p>
-<pre><code class="has-line-data" data-line-start="62" data-line-end="69" class="language-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">unless</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&gt;=</span></span> <span class="hljs-list">(<span class="hljs-keyword">presion</span> tubo)</span> <span class="hljs-number">60</span>)</span>
+<p class="has-line-data" data-line-start="57" data-line-end="58">Se advierte que la rama del <code>when</code> tiene un <code>begin</code> implícito, mientras que el <code>if</code> requiere un <code>begin</code>explícito, sino sus ramas tienen más de una forma.</p>
+<p class="has-line-data" data-line-start="59" data-line-end="60">El mismo comportamiento se puede expresar mediante <code>unless</code>:</p>
+<pre><code class="has-line-data" data-line-start="63" data-line-end="70" class="language-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">unless</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&gt;=</span></span> <span class="hljs-list">(<span class="hljs-keyword">presion</span> tubo)</span> <span class="hljs-number">60</span>)</span>
    <span class="hljs-list">(<span class="hljs-keyword">abre-valvula</span> tubo)</span>
    <span class="hljs-list">(<span class="hljs-keyword">conecta</span> bomba-de-piso tubo)</span>
    <span class="hljs-list">(<span class="hljs-keyword">pulsa</span> bomba-de-piso <span class="hljs-number">5</span>)</span>
    <span class="hljs-list">(<span class="hljs-keyword">desconecta</span> bomba-de-piso tubo)</span>
    <span class="hljs-list">(<span class="hljs-keyword">cierra-valvula</span> tubo)</span>)</span>
 </code></pre>
-<p class="has-line-data" data-line-start="70" data-line-end="71">No todos los Scheme proporcionan <code>when</code> y <code>unless</code>. Racket los tiene. Si el Scheme que usas no los tiene, se pueden definir mediante macros.</p>
-<pre><code class="has-line-data" data-line-start="73" data-line-end="77" class="language-scheme">if (char&lt;? c #\c) -1
-    (if (char=? c #\c) 0
-        1))
+<p class="has-line-data" data-line-start="71" data-line-end="72">No todos los Scheme proporcionan <code>when</code> y <code>unless</code>. Racket los tiene. Si el Scheme que usas no los tiene, se pueden definir mediante macros.</p>
+<pre><code class="has-line-data" data-line-start="74" data-line-end="78" class="language-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">char&lt;?</span></span> c <span class="hljs-literal">#\c</span>)</span> <span class="hljs-number">-1</span>
+    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">char=?</span></span> c <span class="hljs-literal">#\c</span>)</span> <span class="hljs-number">0</span>
+        <span class="hljs-number">1</span>)</span>)</span>
 </code></pre>
-<p class="has-line-data" data-line-start="78" data-line-end="79">se puede rescribir con <code>cond</code> como:</p>
-<pre><code class="has-line-data" data-line-start="81" data-line-end="85" class="language-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cond</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">char&lt;?</span></span> c <span class="hljs-literal">#\c</span>)</span> <span class="hljs-number">-1</span>)</span>
+<p class="has-line-data" data-line-start="79" data-line-end="80">se puede rescribir con <code>cond</code> como:</p>
+<pre><code class="has-line-data" data-line-start="82" data-line-end="86" class="language-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cond</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">char&lt;?</span></span> c <span class="hljs-literal">#\c</span>)</span> <span class="hljs-number">-1</span>)</span>
       <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">char=?</span></span> c <span class="hljs-literal">#\c</span>)</span> <span class="hljs-number">0</span>)</span>
       <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">else</span></span> <span class="hljs-number">1</span>)</span>)</span>
 </code></pre>
-<p class="has-line-data" data-line-start="86" data-line-end="89">La forma <code>cond</code> es un condicional <em>multi-rama</em>. Cada cláusula tiene una condición y una acción asociada.<br>
+<p class="has-line-data" data-line-start="87" data-line-end="90">La forma <code>cond</code> es un condicional <em>multi-rama</em>. Cada cláusula tiene una condición y una acción asociada.<br>
 La primera condición que da verdadero dispara su acción asociada. La cláusula final <code>else</code> se selecciona<br>
 si ninguna de las conciones precedentes tuvo éxito.</p>
-<p class="has-line-data" data-line-start="90" data-line-end="91">Las acciones del <code>cond</code> tienen <code>begin</code> implícito.</p>
-<h2 class="code-line" data-line-start=93 data-line-end=94><a id="43_case_93"></a>4.3. <code>case</code></h2>
-<p class="has-line-data" data-line-start="95" data-line-end="97">Hay un caso especial de <code>cond</code> que se puede condensar en una expresión <code>case</code>: cuando todas las condiciones<br>
+<p class="has-line-data" data-line-start="91" data-line-end="92">Las acciones del <code>cond</code> tienen <code>begin</code> implícito.</p>
+<h2 class="code-line" data-line-start=94 data-line-end=95><a id="43_case_94"></a>4.3. <code>case</code></h2>
+<p class="has-line-data" data-line-start="96" data-line-end="98">Hay un caso especial de <code>cond</code> que se puede condensar en una expresión <code>case</code>: cuando todas las condiciones<br>
 son comprobaciones de pertenencia:</p>
-<pre><code class="has-line-data" data-line-start="99" data-line-end="106" class="language-scheme">(case c
+<pre><code class="has-line-data" data-line-start="100" data-line-end="107" class="language-scheme">(case c
   ((#\a) 1)
   ((#\b) 2)
   ((#\c) 3)
   (else 4))
 =&gt;  3
 </code></pre>
-<p class="has-line-data" data-line-start="107" data-line-end="108">La cláusula seleccionada es aquella cuya cabeza contiene el valor de <code>c</code>.</p>
-<h2 class="code-line" data-line-start=109 data-line-end=110><a id="44_and_y_or_109"></a>4.4. <code>and</code> y <code>or</code></h2>
-<p class="has-line-data" data-line-start="111" data-line-end="113">Scheme proporciona formas especiales para la conjunción (<em>and</em>) y la disjunción (<em>or</em>). Ya hemos visto que<br>
+<p class="has-line-data" data-line-start="108" data-line-end="109">La cláusula seleccionada es aquella cuya cabeza contiene el valor de <code>c</code>.</p>
+<h2 class="code-line" data-line-start=110 data-line-end=111><a id="44_and_y_or_110"></a>4.4. <code>and</code> y <code>or</code></h2>
+<p class="has-line-data" data-line-start="112" data-line-end="114">Scheme proporciona formas especiales para la conjunción (<em>and</em>) y la disjunción (<em>or</em>). Ya hemos visto que<br>
 el <code>not</code> es un procedimiento.</p>
-<p class="has-line-data" data-line-start="114" data-line-end="116">La forma especial <code>and</code> retorna verdadero si todas sus subformas son verdadero. El valor retornado es el<br>
+<p class="has-line-data" data-line-start="115" data-line-end="117">La forma especial <code>and</code> retorna verdadero si todas sus subformas son verdadero. El valor retornado es el<br>
 valor de la subforma final. Si cualquiera de las subformas es falso, <code>and</code> retorna <code>#f</code>.</p>
-<pre><code class="has-line-data" data-line-start="118" data-line-end="121" class="language-scheme">(and 1 2)  =&gt;  2
+<pre><code class="has-line-data" data-line-start="119" data-line-end="122" class="language-scheme">(and 1 2)  =&gt;  2
 (and #f 1) =&gt;  #f
 </code></pre>
-<p class="has-line-data" data-line-start="123" data-line-end="124">La forma especial <code>or</code> retorna el valor de la primer subforma que devuelve verdadero. Si todas sus subformas son falso, <code>or</code> retorna <code>#f</code>.</p>
-<pre><code class="has-line-data" data-line-start="127" data-line-end="130" class="language-scheme">(or 1 2)  =&gt;  1
+<p class="has-line-data" data-line-start="124" data-line-end="125">La forma especial <code>or</code> retorna el valor de la primer subforma que devuelve verdadero. Si todas sus subformas son falso, <code>or</code> retorna <code>#f</code>.</p>
+<pre><code class="has-line-data" data-line-start="128" data-line-end="131" class="language-scheme">(or 1 2)  =&gt;  1
 (or #f 1) =&gt;  1
 </code></pre>
-<p class="has-line-data" data-line-start="131" data-line-end="132">Tanto <code>and</code> como <code>or</code> evalúan sus subformas de izquierda a derecha. Tan pronto como se puede determinar el resultado, las restantes subformas serán ignoradas.</p>
-<pre><code class="has-line-data" data-line-start="135" data-line-end="141" class="language-scheme">(and 1 #f expression-guaranteed-to-cause-error)
+<p class="has-line-data" data-line-start="132" data-line-end="133">Tanto <code>and</code> como <code>or</code> evalúan sus subformas de izquierda a derecha. Tan pronto como se puede determinar el resultado, las restantes subformas serán ignoradas.</p>
+<pre><code class="has-line-data" data-line-start="137" data-line-end="143" class="language-scheme">(and 1 #f expression-guaranteed-to-cause-error)
 =&gt;  #f
 
 (or 1 #f expression-guaranteed-to-cause-error)
