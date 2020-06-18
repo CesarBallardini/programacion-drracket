@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Una breve historia del paradigma funcional
+## César Ballardini <br> <cesar.ballardini@gmail.com>
+
+---
+# Richard Hamming
+
+<em>Indeed, one of my major complaints about the computer field is that whereas Newton could say, "If I have seen a little farther than others, it is because I have stood on the shoulders of giants," I am forced to say, "Today we stand on each other's feet." Perhaps the central problem we face in all of computer science is how we are to get to the situation where we build on top of the work of others rather than redoing so much of it in a trivially different way. Science is supposed to be cumulative, not almost endless duplication of the same kind of things.</em>
+
+
+https://libquotes.com/richard-hamming/quote/lbb6l6b
+
+<!-- https://libquotes.com/apics/richard-hamming.jpg -->
+
+---
+# Paradigmas de programación
+
+
+* Imperativo
+
+???
+Programación estructurada: limita las transferencias directas de control.</br>
+Es una respuesta al fracaso del GOTO.</br>
+Es una secuencia de pasos que se sigue para alterar valores de variables.</br>
+Se piensa explícitamente en términos de cambio de estado.</br>
+
+---
+# Paradigmas de programación
+
+
+* Imperativo
+* Orientado a Objetos
+
+???
+Mensajes entre objetos que interactúan.</br>
+Limita las transferencias <strong>indirectas</strong> de control.</br>
+Es una respuesta al fracaso de los punteros a función.</br>
+Exponen el procedimiento, ocultan el estado.</br>
+
+---
+# Paradigmas de programación
+
+
+* Imperativo
+* Orientado a Objetos
+* Funcional
+
+???
+Transforma la entrada en salida.  La salida es dependiente solamente de la entrada.</br>
+Carecen de estado.</br>
+Limita los cambios de estado</br>
+Es una respuesta al fracaso del estado.</br>
+
+---
+# Alonzo Church - 1932
+
+A Set of Postulates for the Foundation of Logic</br>
+Alonzo Church</br>
+Annals of Mathematics</br>
+Second Series, Vol. 33, No. 2 (Apr., 1932), pp. 346-366</br>
+
+https://www.jstor.org/stable/1968337?seq=1
+
+---
+# Alan Turing - 1936
+
+https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf
+<!-- http://www.turingarchive.org/viewer/?id=466&title=02 correcciones -->
+
+---
+# John McCarthy - 1960
+
+Recursive Functions of Symbolic Expressions and Their Computation by Machine, Part I</br>
+John McCarthy, Massachusetts Institute of Technology, Cambridge, Mass.</br>
+April 1960
+
+http://jmc.stanford.edu/articles/recursive/recursive.pdf
+
+https://dl.acm.org/doi/10.1145/367177.367199
+https://dl.acm.org/doi/pdf/10.1145/367177.367199
+
+---
+# Lisp 1.5 Manual - 1962
+
+http://www.softwarepreservation.org/projects/LISP/book/LISP%201.5%20Programmers%20Manual.pdf
+
+pp. 13
+???
+Las ecuaciones de Maxwell del software, según Alan Kay
+---
+# P. J. Landin - 1966
+
+The Next 700 Programming Languages 
+
+https://www.cs.cmu.edu/~crary/819-f09/Landin66.pdf
+???
+Leyes: una ley es una equivalencia entre programas que asegura que ambos se van a comportar igual en cualquier contexto.</br>
+
+(MAPLIST F (REVERSE L)) = (REVERSE (MAPLIST F L))</br>
+entonces se puede reemplazar uno por el otro</br>
+En Lisp F puede tener side effects, por lo tanto,  no son idénticos para todo F : eso está mal!</br>
+¿Cuál es el propósito de tener 2 maneras de hacer lo mismo?</br>
+¿no es mejor tener dos capacidades diferentes que una sola?</br>
+¿no es más expresivo?</br>
+</br>
+Landin: Expressive power should be by design, rather than accident!</br>
+
+---
+# John Backus - 1978
+Can Programming Be Liberated from the von Neumann Style?</br>
+A Functional Style and Its Algebra of Programs 
+
+https://dl.acm.org/doi/pdf/10.1145/1283920.1283933?download=true
+
+???
+Turing Award 1977 por haber liderado el equipo que escribió el primer compilador de FORTRAN</br>
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
