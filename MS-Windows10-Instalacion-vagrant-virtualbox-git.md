@@ -17,7 +17,6 @@ cyg-get ncurses
 Configuración inicial de Git:
 
 ```bash
-
 ##
 # sustituye por tu nombre completo y tu dirección de email:
 #
@@ -30,8 +29,12 @@ git config --global color.ui auto
 # default ya esta seleccionado
 git config --global push.default simple
 
+#  es el store de credenciales para MS Windows https://github.com/Microsoft/Git-Credential-Manager-for-Windows
+choco install gcm --pre  
+git config --global credential.helper manager
+
 # guarde credenciales durante un dia en cache para no repreguntarlas
-git config --global credential.helper cache --timeout 36000
+git config credential.helper 'cache --timeout=36000'
 
 ```
 
