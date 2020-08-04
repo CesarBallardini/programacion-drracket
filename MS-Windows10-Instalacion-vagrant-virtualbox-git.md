@@ -46,6 +46,7 @@ git config credential.helper 'cache --timeout=36000'
 vagrant plugin install vagrant-winnfsd
 vagrant plugin install vagrant-vbguest
 vagrant plugin install vagrant-proxyconf
+vagrant plugin install vagrant-disksize
 
 
 ```
