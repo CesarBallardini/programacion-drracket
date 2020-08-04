@@ -12,7 +12,10 @@ refreshenv
 cyg-get openssh 
 cyg-get rsync 
 cyg-get ncurses
+
 ```
+
+GCM es el store de credenciales para MS Windows https://github.com/Microsoft/Git-Credential-Manager-for-Windows
 
 Configuración inicial de Git:
 
@@ -30,8 +33,11 @@ git config --global color.ui auto
 # default ya esta seleccionado
 git config --global push.default simple
 
+choco install gcm --pre  
+git config --global credential.helper manager
+
 # guarde credenciales durante un dia en cache para no repreguntarlas
-git config --global credential.helper cache --timeout 36000
+git config credential.helper 'cache --timeout=36000'
 
 ```
 
